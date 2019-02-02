@@ -1,0 +1,102 @@
+<%- include includes/navbar.ejs %>
+    <div class="container-fluid">
+        <div class="row" id="dashboard-top-pane">
+            <div class="col-sm-8">
+                <div class="col-sm-12" id="myCoursesList">
+                    <h2>MY COURSES</h2>
+                    <hr>
+                    <ul class="list-group">
+                    
+                    <%if(obj[0].courses.length==0){%>
+                        <h1 style="text-align: center;">NO COURSES REGISTRED</h1>
+                        <center><a href="./courses" class="btn btn-primary" style="margin: 0 auto;">REGISTER COURSE</a></center>
+                    <%}
+                     else{%>
+                     
+                     <% obj[0].courses.forEach(function(obj) {
+    if(obj.status!="done"){
+    %>
+                     <li class="list-group-item"><%= obj.courseName %> 
+                     <form class="pull-right" action="course" method="post">
+                     <input type="text" value=<%= obj.courseName %> hidden name="name">
+                     <input type="text" value=<%= obj.status %> hidden name="status">
+                     <input type="text" value=<%= obj.week %> hidden name="week">
+                     <button class="badge"><%= obj.status %></button>
+                     </form>
+                    <br><br>
+                    <div class="progress yellow">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:<%= obj.perc %>%;">
+                        <div class="progress-value" style="color: black; text-align: center;"><%= obj.perc %></div>
+                        </div>
+                    </div>
+                    <div><center>PRACTICE <span class="glyphicon glyphicon-road"></span></center></div>
+                    </li>
+                     <%}})%>
+                     <%}%>
+                    
+                   
+<!--
+                    <li class="list-group-item">New <span class="badge">RESUME</span>
+                    <br><br>
+                    <div class="progress yellow">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:65%;">
+                        <div class="progress-value">65%</div>
+                        </div>
+                    </div>
+                    <div><center>PRACTICE <span class="glyphicon glyphicon-road"></span></center></div>
+                    </li>
+-->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="col-sm-12" id="myPoints">
+                    <h2>POINTS</h2>
+                    <hr>
+                    <span id="points"><%= obj[0].points %></span>
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class="row" id="dashboard-bottom-pane">
+            <div class="col-sm-3">
+                <div class="col-sm-12" id="myProfile">
+                    <div class="image">
+                    <img src="http://www.24horas.cl/incoming/article147253.ece/ALTERNATES/w700/Terminator.png" alt="" class="img-responsive img-rounded">
+                    </div>
+                    <br>
+                    <div><%= obj[0].description %></div>
+                    <br>
+                    <div class="btn btn-primary userInfo">INFO</div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="col-sm-12" id="myActivity">
+                    <h2>ACTIVITY</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="col-sm-12" id="number"><%= obj[0].coursesDone %></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="col-sm-12" id="coursesCompleted">
+                            <h3>COURSES COMPLETED</h3>
+                            <ul>
+                                
+                                
+                                 <% obj[0].courses.forEach(function(obj) {
+                      if(obj.status=="done"){
+                      %>
+                     <li><%= obj.courseName %> </li>
+                     <%}})%>
+                     
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include includes/footer.ejs %>

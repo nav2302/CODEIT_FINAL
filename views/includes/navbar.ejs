@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="stylesheets/styles.css">
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<script type="text/javascript" src="scripts/angular.min.js" ></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="scripts/angularwork.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+ <div id="mySidenav" class="sidenav" >
+  <br>
+  <img src= "http://www.24horas.cl/incoming/article147253.ece/ALTERNATES/w700/Terminator.png" alt="" class="img-responsive" id="display-image">
+  <span id="username"><a href="#"><%= uname%></a></span>
+  <hr>
+  <a href="dashboard">DASHBOARD</a>
+  <a href="courses">COURSES</a>
+  <a href="references">REFERENCES</a>
+  <a href="quickNotes">QUICK NOTES</a>
+</div>
+
+<div id="main">
+    <div id="main-heading">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CODE IT <span class="glyphicon glyphicon-knight"></span></span>
+    </div>
+    <div id="sub-heading" style="position:relative" >
+        <span><a href="../logout" class="btn btn-danger pull-right">logout</a></span>
+        
+
+       
+       
+
+
+       
+       
+       
+        <h3><%= pageHeading%></h3>
+    </div>
+    <div id="content">
+        </div>
+        </div>
+        </div>
+        </div>
+
